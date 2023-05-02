@@ -1,0 +1,40 @@
+
+
+void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+    //merge two arrays and return it sorted
+    //nums1 has m elements and nums2 has n elements
+    //nums1 has length m+n
+    //merge them in-place in nums1
+
+    int i = m - 1, j = n - 1, k = m + n - 1;
+    while (i >= 0 && j >= 0) {
+        if (nums1[i] > nums2[j]) {
+            nums1[k] = nums1[i];
+            i--;
+        } else {
+            nums1[k] = nums2[j];
+            j--;
+        }
+        k--;
+    }
+    while (j >= 0) {
+        nums1[k] = nums2[j];
+        j--;
+        k--;
+    }
+}
+Solution:
+
+We can solve the problem using a 2D vector, where each row represents a row of Pascal's triangle. We start by initializing the first row to 1, and then for each subsequent row, we calculate the values using the formula that each element is the sum of the two elements above it. We then append each row to the 2D vector and return the entire 2D vector as the result.
+
+Algorithm:
+
+Create a 2D vector to store the result.
+Initialize the first row with a single element 1.
+Iterate from row 2 to numRows, and for each row:
+a. Create a new vector to store the elements of the current row.
+b. Set the first and last elements of the current row to 1.
+c. Iterate from the second element to the second last element of the row, and for each element:
+i. Calculate the value of the element by adding the values of the two elements above it in the previous row.
+ii. Push the calculated value into the vector of the current row.
+d. Push the vector of the current row into the 2D v
