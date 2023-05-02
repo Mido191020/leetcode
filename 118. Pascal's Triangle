@@ -1,0 +1,34 @@
+vector<vector<int>> generate(int numRows) {
+    vector<vector<int>> triangle(numRows);
+
+    for (int i = 0; i < numRows; i++) {
+        triangle[i].resize(i+1);
+        triangle[i][0]=1;
+        for (int j = 1; j < i; j++) {
+            triangle[i][j]=triangle[i-1][j-1]+triangle[i-1][j];
+        }
+        triangle[i][i]=1;
+    }
+    return triangle;
+}
+
+
+Solution:
+
+We can solve the problem by using a 2D vector, where each row represents a row of Pascal's triangle. We start by initializing the first row to 1, and then for each subsequent row, we calculate the values using the formula that each element is the sum of the two elements above it. We then append each row to the 2D vector and return the entire 2D vector as the result.
+
+Time Complexity:
+
+The time complexity of the algorithm is O(n^2), where n is the input parameter numRows, as we need to iterate through each row and calculate the values for each element in the row.
+
+Space Complexity:
+
+The space complexity of the algorithm is also O(n^2), as we need to store the entire Pascal's triangle in a 2D vector.
+
+Overall, the solution is efficient and straightforward. However, we can optimize the space complexity by using a 1D vector instead of a 2D vector.
+
+
+
+
+
+
