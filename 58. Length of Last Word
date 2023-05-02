@@ -10,3 +10,9 @@ int ans=0;
     }
     return ans;
 }
+
+Solution:
+To solve this problem, we can use a two-pointer approach. We start by initializing a pointer `r` to point to the last character in the input string `s`. We then use a `while` loop to skip any trailing spaces in the string starting from `r`. 
+Once we have skipped the trailing spaces, we can start counting the length of the last word in the string. We do this by iterating backwards from `r` until we reach the start of the string or a space character. We count the number of characters encountered during this iteration and return the count as the length of the last word in the string.
+To handle the case where there might be trailing spaces at the end of the input string, we first skip those spaces before counting the length of the last word. This is done using the `while` loop that skips trailing spaces.
+Overall, the time complexity of this solution is O(n), where n is the length of the input string. The space complexity is O(1), since we are not using any extra data structures to solve the problem.
